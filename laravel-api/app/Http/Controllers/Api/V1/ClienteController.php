@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\v1;
 
 use App\Models\Cliente;
 use App\Http\Requests\StoreClienteRequest;
 use App\Http\Requests\UpdateClienteRequest;
+use App\Http\Controllers\Controller;
 
 class ClienteController extends Controller
 {
@@ -13,7 +14,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        return Cliente::all();
     }
 
     /**

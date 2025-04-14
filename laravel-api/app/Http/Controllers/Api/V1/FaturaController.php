@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\v1;
 
 use App\Models\Fatura;
 use App\Http\Requests\StoreFaturaRequest;
 use App\Http\Requests\UpdateFaturaRequest;
+use App\Http\Controllers\Controller;
 
 class FaturaController extends Controller
 {
@@ -13,7 +14,7 @@ class FaturaController extends Controller
      */
     public function index()
     {
-        //
+        return Fatura::all();
     }
 
     /**
