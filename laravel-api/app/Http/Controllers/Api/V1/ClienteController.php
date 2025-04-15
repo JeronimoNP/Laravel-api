@@ -6,6 +6,9 @@ use App\Models\Cliente;
 use App\Http\Requests\StoreClienteRequest;
 use App\Http\Requests\UpdateClienteRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\ClienteResource;
+use App\Http\Resources\V1\ClienteCollection;
+
 
 class ClienteController extends Controller
 {
@@ -14,7 +17,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return Cliente::all();
+        return new ClienteCollection(Cliente::paginate());
     }
 
     /**
@@ -38,7 +41,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        return new ClienteResource($cliente);
     }
 
     /**

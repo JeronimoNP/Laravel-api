@@ -6,6 +6,8 @@ use App\Models\Fatura;
 use App\Http\Requests\StoreFaturaRequest;
 use App\Http\Requests\UpdateFaturaRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\FaturaCollection;
+use App\Http\Resources\V1\FaturaResource;
 
 class FaturaController extends Controller
 {
@@ -14,7 +16,7 @@ class FaturaController extends Controller
      */
     public function index()
     {
-        return Fatura::all();
+        return new FaturaCollection(Fatura::paginate());
     }
 
     /**
@@ -38,7 +40,7 @@ class FaturaController extends Controller
      */
     public function show(Fatura $fatura)
     {
-        //
+        return new FaturaResource($fatura);
     }
 
     /**
